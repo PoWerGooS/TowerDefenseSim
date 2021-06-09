@@ -21,12 +21,52 @@ sniper = createSprite(180,180,10,10)
 sniper.addImage(sniperI)
 sniper.scale =0.75
 fireballGroup = new Group()
+three = createSprite(650,500,100,2)
+four = createSprite(1090,430,30,300)
+five = createSprite(990,194,100,30)
+six = createSprite(781,210,50,30)
+seven = createSprite(854,480,50,3)
+tank.velocityX=0
+tank.velocityY=-2
+hb=createSprite(780,60,100,1)
+ hb2=createSprite(780,90,100,1) 
+ hb3=createSprite(730,75,1,30) 
+ hb4=createSprite(830,75,1,30) 
+ bh5=createSprite(835,75,10,20)
 }
 function draw(){
     background(backdropI)
+    three.visible= true
+    console.log(mouseX,mouseY)
+    if(tank.isTouching(three)){
+        tank.velocityX=2
+        tank.velocityY=0
+        
+        
+    }
+    if(tank.isTouching(four)){
+        tank.velocityX=0
+        tank.velocityY=-2
+        
+    }
+    if(tank.isTouching(five)){
+        tank.velocityX=-2
+        tank.velocityY=0
+        
+    }
+    if(tank.isTouching(six)){
+        tank.velocityX=0
+        tank.velocityY=2
+        
+    }
+    if(tank.isTouching(seven)){
+        tank.velocityX=-2
+        tank.velocityY=0
+        
+    }
     spawnFireballs()
     drawSprites()
-    tank.rotation = 175
+    sniper.rotation = mouseX
 }
 function spawnFireballs(){
     if(frameCount%20 === 0){
@@ -34,7 +74,7 @@ function spawnFireballs(){
         fireball.addImage(fireballI)
         fireball.scale = 0.02
         var rand = Math.round(random(1,10))
-        console.log(rand)
+        //console.log(rand)
         if(rand === 1){ 
         fireball.velocityX = 10
         fireball.velocityY = -10
