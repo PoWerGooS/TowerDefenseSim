@@ -26,8 +26,14 @@ four = createSprite(1090,430,30,300)
 five = createSprite(990,194,100,30)
 six = createSprite(781,210,50,30)
 seven = createSprite(854,480,50,3)
+eight = createSprite(154,472,5,30)
+nine = createSprite(159,645,5,15)
+ten = createSprite(481,645,5,15)
+eleven = createSprite(381,82,5,15)
+twelve = createSprite(740,125,5,15)
+thirteen = createSprite(740,340,5,15)
 tank.velocityX=0
-tank.velocityY=-2
+tank.velocityY=-5
 hb=createSprite(780,60,100,1)
  hb2=createSprite(780,90,100,1) 
  hb3=createSprite(730,75,1,30) 
@@ -36,35 +42,76 @@ hb=createSprite(780,60,100,1)
 }
 function draw(){
     background(backdropI)
-    three.visible= true
+    three.visible= false
+    four.visible= false
+    five.visible= false
+    six.visible= false
+    seven.visible= false
+    eight.visible= false
+    nine.visible= false
+    ten.visible= false
+    eleven.visible= false
+    twelve.visible= false
+    thirteen.visible= false
     console.log(mouseX,mouseY)
     if(tank.isTouching(three)){
-        tank.velocityX=2
+        tank.velocityX=5
         tank.velocityY=0
         
         
     }
     if(tank.isTouching(four)){
         tank.velocityX=0
-        tank.velocityY=-2
+        tank.velocityY=-5
         
     }
     if(tank.isTouching(five)){
-        tank.velocityX=-2
+        tank.velocityX=-5
         tank.velocityY=0
         
     }
     if(tank.isTouching(six)){
         tank.velocityX=0
-        tank.velocityY=2
+        tank.velocityY=5
         
     }
     if(tank.isTouching(seven)){
-        tank.velocityX=-2
+        tank.velocityX=-5
+        tank.velocityY=0
+        
+    }
+    if(tank.isTouching(eight)){
+        tank.velocityX=0
+        tank.velocityY=5
+        
+    }
+    if(tank.isTouching(nine)){
+        tank.velocityX=5
+        tank.velocityY=0
+        
+    }
+    if(tank.isTouching(ten)){
+        tank.velocityX=0
+        tank.velocityY=-5
+        
+    }
+    if(tank.isTouching(eleven)){
+        tank.velocityX=5
+        tank.velocityY=0
+        
+    }
+    if(tank.isTouching(twelve)){
+        tank.velocityX=0
+        tank.velocityY=5
+        
+    }
+    if(tank.isTouching(thirteen)){
+        tank.velocityX=-5
         tank.velocityY=0
         
     }
     spawnFireballs()
+    spawnTanks()
     drawSprites()
     sniper.rotation = mouseX
 }
@@ -116,7 +163,13 @@ function spawnFireballs(){
         fireball.velocityY = 15
     }
         //fireballGroup.add(fireball)
-        fireball.lifetime = 100
+        fireball.lifetime = 70
 
     }
+}
+function spawnTanks(){
+if(frameCount%20===0){
+    var tanker = createSprite(200,200,20,20)
+    tanker.addImage()
+}
 }
